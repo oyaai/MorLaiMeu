@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>เว็บดูลายมือ</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>วิเคราะห์ลายมือ (ส่งให้ ChatGPT)</h1>
+
+      <form id="palmForm">
+        <div class="grid">
+          <label>
+            เพศ
+            <select name="gender" required>
+              <option value="">เลือก</option>
+              <option value="หญิง">หญิง</option>
+              <option value="ชาย">ชาย</option>
+              <option value="ไม่ระบุ">ไม่ระบุ</option>
+            </select>
+          </label>
+
+          <label>
+            เดือนเกิด
+            <select name="birthMonth" required>
+              <option value="">เลือก</option>
+              <option>มกราคม</option>
+              <option>กุมภาพันธ์</option>
+              <option>มีนาคม</option>
+              <option>เมษายน</option>
+              <option>พฤษภาคม</option>
+              <option>มิถุนายน</option>
+              <option>กรกฎาคม</option>
+              <option>สิงหาคม</option>
+              <option>กันยายน</option>
+              <option>ตุลาคม</option>
+              <option>พฤศจิกายน</option>
+              <option>ธันวาคม</option>
+            </select>
+          </label>
+
+          <label>
+            ปีเกิด (พ.ศ./ค.ศ. ใส่เป็นตัวเลข)
+            <input
+              name="birthYear"
+              inputmode="numeric"
+              placeholder="เช่น 1994 หรือ 2537"
+              required
+            />
+          </label>
+        </div>
+
+        <label>
+          เรื่องที่ต้องการให้ดู (ละเอียด)
+          <textarea
+            name="topicDetail"
+            rows="5"
+            placeholder="เช่น การงาน/การเงิน/ครอบครัว/สุขภาพ/ลูก ฯลฯ"
+            required
+          ></textarea>
+        </label>
+
+        <div class="grid2">
+          <label class="filebox">
+            รูปฝ่ามือซ้าย
+            <input type="file" name="leftPalm" accept="image/*" required />
+            <small>แนะนำ: ถ่ายให้ชัด เห็นเส้นเต็มฝ่ามือ แสงสว่างพอ</small>
+          </label>
+
+          <label class="filebox">
+            รูปฝ่ามือขวา
+            <input type="file" name="rightPalm" accept="image/*" required />
+            <small>แนะนำ: ไม่เบลอ ไม่เอียง ไม่ย้อนแสง</small>
+          </label>
+        </div>
+
+        <button id="submitBtn" type="submit">วิเคราะห์</button>
+      </form>
+
+      <section class="result">
+        <h2>ผลวิเคราะห์</h2>
+        <pre id="output">(ยังไม่มีผล)</pre>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
